@@ -1,0 +1,267 @@
+/* font-family: 'Bubblegum Sans', cursive;
+font-family: 'Clicker Script', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Nanum Pen Script', cursive;
+font-family: 'Nunito Sans', sans-serif; */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Clicker+Script&family=Dancing+Script&family=Montserrat:wght@300&family=Nanum+Pen+Script&family=Nunito+Sans:opsz@6..12&family=Poppins:wght@200;300;400;500;700;800;900&family=Quicksand:wght@500&family=Roboto:wght@300&family=Ruwudu&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-bottom: 0;
+}
+
+.right {
+  text-align: right;
+  width: 50%;
+}
+
+.left {
+  text-align: left;
+  width: 50%;
+}
+
+#customer-invoice {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.invoice {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.invoice .container {
+  max-width: calc(100% - 1rem);
+  margin: 0 auto;
+}
+
+.invoice .container .header {
+  width: 100%;
+  height: auto;
+}
+
+.invoice .container .header .top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid rgb(150, 148, 148);
+  /* background-color: var(--dynamic-color); */
+  /* color: white; */
+  /* border-radius: 5px; */
+}
+
+.invoice .container .header .top .left h1 {
+  font-family: 'Bubblegum Sans', cursive !important;
+  font-family: 'Nanum Pen Script', cursive ;
+  font-family: 'Nunito Sans', sans-serif ;
+}
+
+
+
+.invoice .container .header .top .right h1 {
+  color: var(--dynamic-color);
+  font-weight: 600 !important;
+}
+
+.invoice .container .header .bottom {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem 1rem;
+  margin: .5rem 0;
+
+}
+
+.invoice .container .header .bottom .left h4 {
+  font-weight: 700;
+}
+
+.invoice .container .header .bottom p {
+  font-size: .8rem;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border-bottom: 3px solid rgba(113, 110, 182, 0.15);
+}
+
+tr>td {
+  width: 100px;
+}
+
+tr>td:nth-child(3) {
+  text-align: center;
+}
+
+tr>td:nth-child(4) {
+  width: 10px !important;
+}
+
+tr>td:nth-child(5) {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+tr:last-child {
+  background-color: #706eb6ac;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+td {
+  padding: 0;
+  text-align: center;
+}
+
+th {
+  padding: 0;
+  text-align: center;
+}
+
+tr:last-child>td {
+  text-align: left;
+}
+
+
+.c-table {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.25;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.c-table__cell {
+  padding: 10px 6px 10px 10px;
+  word-wrap: break-word;
+}
+
+.c-table__header tr {
+  color: #fff;
+}
+
+.c-table__header th {
+  background-color: var(--dynamic-color);
+  padding: 15px 6px 15px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.c-table__header th:first-child {
+  border-top-left-radius: 4px;
+}
+
+.c-table__header th:last-child {
+  border-top-right-radius: 4px;
+}
+
+
+.c-table__body tr {
+  border-bottom: 1px solid rgba(113, 110, 182, 0.15);
+}
+
+.c-table__body tr:last-child {
+  border-bottom: none;
+}
+
+/* .c-table__body tr:hover {
+    background-color: rgba(113, 110, 182, 0.15);
+    color: #272b37;
+  } */
+
+.c-table__label {
+  display: none;
+}
+
+.thankyou {
+  width: 100%;
+  padding: .5rem 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+
+.footer {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer h4 {
+  font-size: .8rem;
+  color: black;
+  font-weight: 600;
+}
+.footer .left{
+  width: 40%;
+}
+.footer .right{
+  width: 60%;
+}
+.footer p {
+  font-size: .7rem;
+}
+.footer .right p{
+  width: 70%;
+  float: right;
+}
+
+.footer .right h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  /* font-family: 'Nunito Sans', sans-serif !important; */
+
+}
+
+
+
+/* CSS for showing table header only on the first page when printing */
+@media print {
+
+  tbody {
+    display: table-row-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    /* Prevents row break inside pages */
+  }
+
+  /* Hide header on pages other than the first one */
+  thead {
+    display: table-header-group;
+  }
+
+  tr:first-child {
+    display: table-row;
+    /* Display the first row of the table */
+  }
+}

@@ -1,0 +1,74 @@
+<section id="customer-invoice">
+    <div class="invoice">
+        <div class="container">
+            <div class="header">
+                <div class="top">
+                    <div class="left">
+                        <h1>Salwa</h1>
+                    </div>
+                    <div class="right">
+                        <h1>INVOICE</h1>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="left">
+                        <h4>BILLED TO:</h4>
+                        <p>{{cData.name}}</p>
+                        <p>{{cData.phone}}</p>
+                        <p>{{cData.address}}</p>
+                    </div>
+                    <div class="right">
+                        <p>Invoice ID : {{invoiceID}}</p>
+                        <p>Billing Date : {{currentDate | date:'dd-MM-yyyy'}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+
+                <table class="c-table" >
+                    <thead class="c-table__header dynamic-color">
+                        <tr>
+                            <th class="">No.</th>
+                            <th class="c-table__col-label ">Item</th>
+                            <th class="c-table__col-label ">price</th>
+                            <th class="c-table__col-label ">Qty</th>
+                            <th class="c-table__col-label ">total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="c-table__body">
+                        <tr *ngFor="let item of order;let i=index;">
+                            <td style="width:66px;text-align: center;">{{i+1}}</td>
+                            <td class="c-table__cell" style="width: 450px; text-align: left;">{{item.name}}</td>
+                            <td class="c-table__cell">{{item.price}}</td>
+                            <td class="c-table__cell">
+                                {{item.qty}}
+                            </td>
+                            <td class="c-table__cell" style="text-align: right;padding-right: 1rem;">{{item.price *
+                                item.qty}}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="c-table__cell" colspan="4" style="text-align: center;">Total</td>
+                            <td class="c-table__cell" style="text-align: right;padding-right: 1rem;">{{total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="thankyou">Thank you !!</div>
+            </div>
+            <div class="footer">
+                <div class="left">
+                    <h4>PAYMENT INFORMATION:</h4>
+                    <p>Cash Payment</p>
+                    <p>{{cData.phone}}</p>
+                    <p>{{currentDate | date:'dd-MMMM-yyyy'}}</p>
+                </div>
+                <div class="right">
+                    <h4>salwa family restaurant</h4>
+                    <p>Moinuddin A. Kadiwal</p>
+                    <p>beside Super Fine Bakery,amber tower, Sarkhej, Ahmedabad, Gujarat 380055</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

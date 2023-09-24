@@ -1,0 +1,21 @@
+<section class="customer-detail">
+    <div class="container">
+        <div class="header">
+            <h2>customer Detail</h2>
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+        <div class="main">
+            <form action="">
+                <div><ion-icon name="person-outline"></ion-icon><input type="text" name="customerName" #focused [(ngModel)]="data.name"
+                        placeholder="Enter Customer Name" required></div>
+                <div><ion-icon name="call-outline"></ion-icon><input type="text" name="customerPhone" [(ngModel)]="data.phone"
+                        placeholder="Enter Customer Phone" required></div>
+                <div><ion-icon name="location-outline"></ion-icon><input type="text" name="customerAddress" [(ngModel)]="data.address"
+                        placeholder="Enter Customer Address" required></div>
+                <div mat-dialog-actions>
+                    <button type="submit" [mat-dialog-close]="data" cdkFocusInitial>Invoice</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</section>

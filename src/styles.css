@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Dancing+Script&family=Montserrat:wght@300&family=Poppins:wght@200;300;400;500;700;800;900&family=Roboto:wght@300&family=Ruwudu&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Clicker Script', cursive; */
+  /* font-family: 'Dancing Script', cursive; */
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Poppins', sans-serif !important;
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-family: 'Ruwudu', serif; */
+}
+
+body {
+  --dynamic-color: #716eb6;
+  --text-color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
