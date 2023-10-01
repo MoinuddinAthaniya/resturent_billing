@@ -2,19 +2,34 @@
     <section class="category-list">
         <div class="category-container">
 
-            <div id="category-menu">
+            <div id="category-menu" style="margin-bottom:0 !important;">
                 <div class="title dynamic-color">
-                    <h1>Categories</h1>
-                    <input type="color" value="#e0ffee" id="colorPicker">
+                    <select name="shortingValue" id="" class="shorting" (change)="shortByStatus($event)">
+                        <option name="shortingValue" value="1" selected disabled>Sort By</option>
+                        <option name="shortingValue" value="Blank">Blank Table</option>
+                        <option name="shortingValue" value="Running">Running Table</option>
+                        <option name="shortingValue" value="Paid">Paid Table</option>
+                        <option name="shortingValue" value="KOT">KOT Table</option>
+                        <option name="shortingValue" value="All">All Table</option>
+
+
+                    </select>
                 </div>
-                <ul>
-                    <li *ngFor="let category of categories;let i = index" class="menu-item"
-                        [ngClass]="i===0 ? 'active' : ''" (click)="ShowItemByCategory(category.id)">{{category.name}}
-                    </li>
-                </ul>
+                <div class="tables" style="margin-bottom:0 !important;">
+                    <a class="contextMenu" *ngFor="let item of filtredTables;let i=index"
+                        [href]="'/billing/'+(item.id)" #tooltip="matTooltip" [matTooltip]="item.status"
+                        matTooltipPosition="above">
+                        <div class="table" [style]="'background-color :'+item.color"
+                            data-tooltip="I found what I need. And it's not friends, it's things."
+                            data-tooltip-pos="right" data-tooltip-length="medium">
+                            <h1>{{item.id}}</h1>
+                        </div>
+                    </a>
+
+                </div>
             </div>
 
-            <a href="/"><ion-icon name="home-outline"></ion-icon><span>Back To Home</span></a>
+            <a href="/" style="margin-bottom: 0rem;background-color: rgb(211, 211, 211);padding: .7rem .5rem;display: flex;align-items: center;"><ion-icon name="home-outline"></ion-icon><span>Back To Home</span></a>
         </div>
     </section>
     <section class="main">
@@ -23,24 +38,26 @@
                 <div class="head">
                     <div class="filter">
                         <ion-icon name="search"></ion-icon>
-                        <select  placeholder="Filter Item By Category" [(ngModel)]="searchKeyByCategory"
-                        (change)="filterItemByCategory()" [value]="searchKeyByCategory" name="searchKeyByCategory">
-                        <option disabled selected>Select Category</option>
-                            <option  *ngFor="let category of categories;" [value]="category.name">{{category.name}}</option>
+                        <select placeholder="Filter Item By Category" [(ngModel)]="searchKeyByCategory"
+                            (change)="filterItemByCategory()" [value]="searchKeyByCategory" name="searchKeyByCategory">
+                            <option disabled selected>Select Category</option>
+                            <option *ngFor="let category of categories;" [value]="category.name">{{category.name}}
+                            </option>
                         </select>
 
                     </div>
                     <div class="filter">
                         <ion-icon name="search"></ion-icon>
                         <input type="text" placeholder="search by item name" [(ngModel)]="searchKeyByItemName"
-                        (input)="filterItemByName()" name="searchKeyByItemName" id="">
+                            (input)="filterItemByName()" name="searchKeyByItemName" id="">
                     </div>
                 </div>
                 <div class="content item-list-by-category">
                     <h2 class="dynamic-color">{{categoryName}}</h2>
                     <ul *ngIf="categoryItems.length != 0; else noItems">
 
-                        <li class="dynamic-color" *ngFor="let item of categoryItems;let i=index" (click)="addInOrderTable(item)">
+                        <li class="dynamic-color" *ngFor="let item of categoryItems;let i=index"
+                            (click)="addInOrderTable(item)">
                             <span>{{item.name}}</span>
                         </li>
 
@@ -90,14 +107,16 @@
                                     <td class="c-table__cell">{{item.price}}</td>
                                     <td class="c-table__cell">
                                         <div class="qty">
-                                            <ion-icon name="remove" class="qty-remove" (click)="decQty(item.id)"></ion-icon>
+                                            <ion-icon name="remove" class="qty-remove"
+                                                (click)="decQty(item.id)"></ion-icon>
                                             <input type="number" class="qty-input" [(ngModel)]="item.qty" value="2">
                                             <ion-icon name="add" class="qty-add" (click)="incQty(item.id)"></ion-icon>
                                         </div>
                                     </td>
-                                    <td class="c-table__cell" style="text-align: right;padding-right: 1rem;">{{item.price * item.qty}}</td>
+                                    <td class="c-table__cell" style="text-align: right;padding-right: 1rem;">
+                                        {{item.price * item.qty}}</td>
                                 </tr>
-                               
+
 
                             </tbody>
                         </table>
@@ -107,7 +126,8 @@
                         <button class="dynamic-color" (click)="printInvoice()">Print</button>
                         <button class="dynamic-color">Save & Print</button>
                         <button class="dynamic-color">KOT</button>
-                        <button (click)="DataOnHold()" style="color:var(--dynamic-color);background-color: transparent;border: 2px solid var(--dynamic-color);font-weight: 600;">Hold</button>
+                        <button (click)="DataOnHold()"
+                            style="color:var(--dynamic-color);background-color: transparent;border: 2px solid var(--dynamic-color);font-weight: 600;">Hold</button>
                     </div>
                 </div>
             </div>
@@ -120,7 +140,7 @@
 
 <!-- <app-invoice [style]="show ? 'display:none':''" [customerData]="{name:cName,phone:cPhoneNo,address:cAddress}" [order]="orderList"></app-invoice> -->
 
-    <!-- <section style="" id="customer-invoice">
+<!-- <section style="" id="customer-invoice">
         <div class="invoice">
             <div class="container">
                 <div class="header">

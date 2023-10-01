@@ -6,6 +6,7 @@ import { FoodItemService } from '../services/food-item.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomerDetailComponent } from '../pages/customer-detail/customer-detail.component';
 import { InvoiceComponent } from '../pages/invoice/invoice.component';
+import { TableServiceService } from '../services/table-service.service';
 
 
 
@@ -16,11 +17,12 @@ import { InvoiceComponent } from '../pages/invoice/invoice.component';
 })
 export class BillingPageComponent implements OnInit {
 
-
+  tables!: any;
+  filtredTables!: Array<any>;
 
   @ViewChild('customer-invoice', { static: false }) printableSection!: ElementRef;
 
-  constructor(private route: ActivatedRoute,private _route:Router, private _snack: MatSnackBar, private itemService: FoodItemService, public _dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute,private tableList: TableServiceService,private _route:Router, private _snack: MatSnackBar, private itemService: FoodItemService, public _dialog: MatDialog) { }
 
   categories!: Array<any>;
   orderList: Array<Order> = [];
@@ -37,6 +39,8 @@ export class BillingPageComponent implements OnInit {
 
 
   ngOnInit() {
+    this.tables = JSON.parse(this.tableList.getAllTables() || '{}');
+    this.filtredTables = this.tables;
     this.categories = this.itemService.getAllItem();
     this.categoryItems = this.categories[0].items;
     this.ItemsOnCategory = this.categories[0].items;
@@ -46,6 +50,20 @@ export class BillingPageComponent implements OnInit {
     });
     if (localStorage.getItem(this.table)) {
       this.orderList = JSON.parse(localStorage.getItem(this.table) || '{}');
+    }
+  }
+
+  shortByStatus(Status: any) {
+    if (Status.target.value == 'All') {
+      this.filtredTables = this.tables;
+    }
+    else {
+      this.filtredTables = [];
+      this.tables.forEach((table: any) => {
+        if (table.status == Status.target.value) {
+          this.filtredTables.push(table);
+        }
+      });
     }
   }
 

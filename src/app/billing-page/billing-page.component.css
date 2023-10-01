@@ -14,6 +14,48 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+ .tables {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  justify-content: center;
+  padding: 0.5rem 0;
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: 80vh;
+}
+.tables::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tables::-webkit-scrollbar-track {
+  background-color: #ebebeb;
+}
+
+.tables::-webkit-scrollbar-thumb {
+  background: #6d6d6d;
+}
+
+.tables .table {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  cursor: pointer;
+  background-color: blueviolet;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: .5rem .5rem;
+}
+h1 {
+  margin: 0 !important;
+font-weight: normal;
+
+}
+ .tables .table h1 {
+  font-size: 2rem;
+  color: white;
+}
 
 h1 {
   margin: 0 !important;
@@ -259,13 +301,14 @@ main {
 
 .category-list .category-container .title {
   color: black;
-  background-color: var(--dynamic-color);
+  /* background-color: var(--dynamic-color); */
   color: var(--text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 1rem .5rem .5rem;
+  /* padding: .5rem 1rem .5rem .5rem; */
 }
+
 
 .category-list .category-container ul {
   overflow-y: scroll;
@@ -291,7 +334,13 @@ main {
   letter-spacing: 1px !important;
 }
 
-
+.category-list[_ngcontent-ng-c3882490419] .category-container[_ngcontent-ng-c3882490419] a[_ngcontent-ng-c3882490419] {
+  /* margin-bottom: 1rem; */
+  padding: 0.5rem 1rem;
+  background-color: white !important;
+  display: flex;
+  align-items: center;
+}
 
 .category-list .category-container ul li.active,
 .menu-item:hover {
@@ -299,19 +348,28 @@ main {
   color: var(--text-color);
 }
 
+.shorting {
+  /* margin-right: 1rem; */
+  margin:0 !important;
+  padding: .5rem 1rem;
+  border: 2px solid #7C5CFC;
+  outline: none;
+  background: transparent;
+  color: #7C5CFC;
+}
 
-.category-list .category-container a {
+/* .category-list .category-container a {
   margin-bottom: 1rem;
   padding: .5rem 1rem;
   background-color: #e0e4e6;
   display: flex;
   align-items: center;
-}
+} */
 
-.category-list .category-container a:hover {
+/* .category-list .category-container a:hover {
 
   background-color: #bdc0c2;
-}
+} */
 
 
 /* ------- main section --------- */
@@ -338,7 +396,7 @@ main {
 }
 
 .category-item-list .item-list-container .head {
-  background-color: var(--text-color);
+  /* background-color: var(--text-color); */
   border-radius: 5px;
   display: flex;
   flex-direction: row;
